@@ -17,19 +17,26 @@ if (profilePic) {
 
 // scroll smoothly me baby
 const navLinks = document.querySelectorAll('.nav-links a');
+const logo = document.querySelector('.logo');
 
 navLinks.forEach(link => {
   link.addEventListener('click', (e) => {
     e.preventDefault();
-
     const targetId = link.getAttribute('href').substring(1); // remove '#'
     const targetSection = document.getElementById(targetId);
-
     if (targetSection) {
       targetSection.scrollIntoView({ behavior: 'smooth' });
     }
   });
 });
+
+// smooth scroll for logo too
+if (logo) {
+  logo.addEventListener('click', (e) => {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+}
 
 // Active links babyy!!
 const sections = document.querySelectorAll('section[id]');
